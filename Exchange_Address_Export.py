@@ -5,9 +5,10 @@ import httplib
 import urllib
 import re
 import argparse
-import ssl
-
+'''import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
+当出现[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:590)错误时请启用该模块
+'''
 parser = argparse.ArgumentParser(description='Exchange_Address_Export.')
 parser.add_argument('domain', type=str, help='website')
 parser.add_argument('username', type=str, help='username')
@@ -105,6 +106,6 @@ try:
         outFile.write("\n".join(count)+'\n')
 
 except Exception, e:
-    print 'Logon failure'
+    print e
 
  
