@@ -5,8 +5,9 @@ import httplib
 import urllib
 import re
 import argparse
+import ssl
 
-
+ssl._create_default_https_context = ssl._create_unverified_context
 parser = argparse.ArgumentParser(description='Exchange_Address_Export.')
 parser.add_argument('domain', type=str, help='website')
 parser.add_argument('username', type=str, help='username')
